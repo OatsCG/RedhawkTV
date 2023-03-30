@@ -1,0 +1,71 @@
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<body style="background-color:#FFFFFF00; overflow:hidden;">
+</body>
+<script>
+    //SLIDES INTERFACE JAVASCRIPT
+    //declaring variables
+    var currentSlide = 0;
+    var time = 300;
+    var slidesList = ["G:/My Drive/School TV Things/newTV/blurbg.png"];
+
+    //move to next slide every 10 seconds
+    setInterval(swipeOver, 10000);
+    function swipeOver() {
+        var moveIndex = 0;
+        //follow sin function where x = moveIndex
+        //repeat until end of animation
+        var moveInterval = setInterval(moveSlide, 1);
+
+        function moveSlide() {
+            var newX = (Math.sin((moveIndex * (Math.PI / time)) - (Math.PI / 2)) * -50) + -50;
+            document.getElementById((currentSlide % 2 == 0) ? "currentimg" : "nextimg").style.left = newX + "vw";
+            document.getElementById((currentSlide % 2 == 1) ? "currentimg" : "nextimg").style.left = (newX + 100) + "vw";
+            //at the end of animation, move far left slide to far right, then update that slide. on the next rotation, this now becomes the center slide and the other must be update
+            if (moveIndex >= time) {
+                clearInterval(moveInterval);
+                document.getElementById((currentSlide % 2 == 0) ? "currentimg" : "nextimg").src = slidesList[(currentSlide + 1) % slidesList.length];
+                document.getElementById((currentSlide % 2 == 0) ? "currentimg" : "nextimg").style.left = "100vw";
+                currentSlide++;
+                //update slides list from Google Drive link via Ajax
+                $().ready(function () {
+                    $.get("https://drive.google.com/drive/folders/1X3TbGbWS120RELQoniZD9L_kAf6WZmGh?usp=sharing", function (data) {
+                        slidesList = [];
+                        //format Drive richtext to output image paths for slidesList
+                        for (var link = 0; link < data.split("window[\'_DRIVE_ivd\'] =")[1].split("\\x22,\\x22image").length; link++) {
+                            slidesList.push("G:/My Drive/School TV Things/LIVE (GOES STRAIGHT TO ROTATION)/" + data.split("window[\'_DRIVE_ivd\'] =")[1].split("\\x22,\\x22image")[link].split("\\x22").slice(-1)[0]);
+                        }
+                        slidesList.pop();
+                    });
+                });
+            }
+            moveIndex++;
+        }
+    }
+</script>
+<style>
+    /*slide 1 of rotation*/
+    #currentimg {
+        position: absolute;
+        left: 0vw;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    /*slide 2 of rotation*/
+    #nextimg {
+        position: absolute;
+        left: 100vw;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    /*placeholder - without this there's white borders*/
+    body {
+        margin: 0px;
+    }
+</style>
+<img id="currentimg" src="blurbg.png"></img>
+<img id="nextimg" src="blurbg.png"></img>
+
+</html>

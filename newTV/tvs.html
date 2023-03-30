@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <style>
+    /*CSS FOR ENTIRE PAGE*/
+    /*CSS and JS for slideshow animations is in slides.html*/
+    /*slideshow widget background*/
+    #slideBg {
+      border-radius: 20px;
+      background: #FFFFFF44;
+      width: 60vw;
+      height: calc((60vw / 16) * 9);
+      position: relative;
+    }
+    /*slideshow iframe styling*/
+    #slideBg #currentSlide {
+      border-radius: 12.5px;
+      border:none;
+      width: calc(60vw - 25px);
+      height: calc(33.75vw - 25px);
+      position: absolute;
+      transform: translate(calc((60vw - (60vw - 25px)) / 2), calc((((60vw / 16) * 9) - (((60vw / 16) * 9) - 25px)) / 2));
+    }
+    /*weather widget background*/
+    #weatherTimeBg {
+      border-radius: 20px;
+      background: #FFFFFF44;
+      width: 37vw;
+      height: 33.75vw;
+      position: absolute;
+      top: 0vw;
+      right: 1vw;
+      cursor: none;
+    }
+    /*clock text*/
+    #weatherTimeBg #time {
+      color: #FFFFFFDD;
+      font-size:11.5vw;
+      font-family:helvetica;
+      position:absolute;
+      right: 8vw;
+      top: 0vw;
+      text-align: center;
+      text-shadow:0px 0px 30px #FFFFFF33;
+    }
+    /*AM or PM text*/
+    #weatherTimeBg #amorfm {
+      color: #FFFFFFDD;
+      font-size:4vw;
+      font-family:helvetica;
+      position:absolute;
+      transform: translate(29.5vw, 2vw);
+      text-shadow:0px 0px 30px #FFFFFF33;
+    }
+    /*weather icon*/
+    #weatherTimeBg #weatherInfo {
+      background: url("weatherIcons/FAIR.png");
+      background-size: 15vw, 15vw;
+      position: absolute;
+      width: 15vw;
+      height: 15vw;
+      transform: translate(2vw, 16.5vw);
+    }
+    /*weather temperature text*/
+    #weatherTimeBg #temp {
+      color: #FFFFFFDD;
+      font-size:11vw;
+      font-family:helvetica;
+      position:absolute;
+      top:17vw;
+      right:2vw;
+      text-shadow:0px 0px 30px #FFFFFF44;
+    }
+    /*spacer line between time and weather*/
+    #weatherTimeBg #timeSpacer {
+      border-radius: 20px;
+      background: #FFFFFF44;
+      width: 33vw;
+      height: 0.3vw;
+      position: absolute;
+      top: 14vw;
+      right: 2vw;
+    }
+    /*schedule widget background*/
+    #scheduleBg {
+      border-radius: 20px;
+      background: #FFFFFF44;
+      width: 98.5vw;
+      height: calc((100vh - 33.75vw) - 5.75vh);
+      position: absolute;
+      top: 35vw;
+    }
+    /*spacer line between date and cohorts*/
+     #dateSpacer {
+      border-radius: 20px;
+      background: #FFFFFF44;
+      width: 0.3vw;
+      height: calc((100vh - 40vw) - 10vh);
+      position: absolute;
+      top: 40vw;
+      left: 18.5vw;
+    }
+    /*cohort table row 1 - weekdays*/
+    th {
+      text-align: center;
+      width:15vw;
+      color: #FFFFFFDD;
+      font-size: calc(((100vh - 33.75vw) - 8vh) / 4);
+      font-family:helvetica;
+      padding-top: 0vh;
+      text-shadow:0px 0px 20px #FFFFFF33;
+    }
+    /*cohort table row 2 - cohort image container cells*/
+    td {
+      text-align: center;
+    }
+    /*cohort table row 2 - cohort images*/
+    img {
+      text-align: center;
+      height: calc(((100vh - 33.75vw) - 5vh) / 2);
+      width: calc(((100vh - 33.75vw) - 5vh) / 2);
+      opacity: 1;
+      box-shadow: 0px 0px 30px #00000044;
+    }
+
+
+
+  </style>
+  <body background="blurbg.png" style="background-size:100vw 100vh">
+    <p id="slideBg">
+      <iframe id="currentSlide" src="slideshow.html" scrolling="no"></iframe>
+    </p>
+    <p id="weatherTimeBg">
+      <p1 id="time">00:00</p1>
+      <p2 id="amorfm">PM</p2>
+      <p3 id="weatherInfo"></p3>
+      <p4 id="temp">99</p4>
+      <p5 id="timeSpacer"></p5>
+    </p>
+    <p id="scheduleBg">
+      <table id="schedTable" style="padding-top:calc(((100vh - 33.75vw) - 8vh) / 4 - 5.5vh);">
+        <tr>
+          <th id="month" style="color:#FFFFFFEE;width:21vw;">MTH</th>
+          <th id="day1">MON</th>
+          <th id="day2">TUE</th>
+          <th id="day3">WED</th>
+          <th id="day4">THU</th>
+          <th id="day5">FRI</th>
+        </tr>
+        <tr>
+          <td><b id="dayNum" style="color:#FFFFFFEE;font-size:calc(((100vh - 33.75vw) - 8vh) / 2);font-family:helvetica;text-align: center;text-shadow:0px 0px 30px #FFFFFF66;">99</b></td>
+          <td><img id="coh0" src="cohortIcons/awhite.png"></img></td>
+          <td><img id="coh1" src="cohortIcons/awhite.png"></img></td>
+          <td><img id="coh2" src="cohortIcons/awhite.png"></img></td>
+          <td><img id="coh3" src="cohortIcons/awhite.png"></img></td>
+          <td><img id="coh4" src="cohortIcons/pdwhite.png"></img></td>
+        </tr>
+      </table>
+       <p2 id="dateSpacer"></p2>
+    </p>
+  </body>
+  <script src = "tvScript.js"></script>
+</html>

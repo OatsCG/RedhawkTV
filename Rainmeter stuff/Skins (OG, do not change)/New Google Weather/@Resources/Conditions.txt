@@ -1,0 +1,52 @@
+Code"ImageFileName"	Description of icon
+
+0"STORMY"		thunderstorm
+1"RAIN"			rain
+2"RAIN"			rain
+3"STORMY"		thunderstorm
+4"STORMY"		thunderstorm
+5"SNOW"			rain
+6"SNOW"			snow
+7"SNOW"			snow
+8"SNOW"			snow
+9"RAIN"			rain
+10"RAIN"		freezing rain
+11"RAIN"		rain
+12"RAIN"		rain
+13"SNOW"		snow
+14"SNOW"		snow
+15"SNOW"		snow
+16"SNOW"		snow
+17"STORMY"		thunderstorm
+18"STORMY"		thunderstorm
+19"HAZE"		haze
+20"HAZE"		haze
+21"HAZE"		haze
+22"HAZE"		haze
+23"HAZE"		haze
+24"HAZE"		haze
+25"SNOW"		snow
+26"SUNCLOUD"		cloud
+27"CLOUD"		cloud "night"
+28"CLOUD"		cloud "day"
+29"SUNCLOUD"		cloud "night"
+30"SUNCLOUD"		cloud "day"
+31"FAIR"		clear "night"
+32"FAIR"		sunny
+33"FAIR"		fair "night"
+34"FAIR"		fair "day"
+35"STORMY"		thunderstorm
+36"FAIR"		hot
+37"STORMY"		isolated thunderstorms
+38"STORMY"		scattered thunderstorms
+39"STORMY"		scattered thunderstorms
+40"RAIN"		scattered showers
+41"SNOW"		heavy snow
+42"SNOW"		scattered snow showers
+43"SNOW"		heavy snow
+44"SUNCLOUD"		partly cloudy
+45"RAIN"		rain
+46"SNOW"		snow showers
+47"STORMY"		isolated thundershowers
+49"RAIN"		rain
+na"MYSTERY"		not available
